@@ -7,10 +7,11 @@ import javax.swing.JOptionPane;
 
 public class ClickerRobot implements Runnable {
 	
-	private int numClicks;
+	int numClicks;
 	private int clickInterval;
 	private Robot robot;
 	private ClickerFrame clickerFrame;
+	int testClicks = 0;
 	
 	public ClickerRobot( ClickerFrame clickerFrame, int numClicks, int clickInterval ) {
 		try {
@@ -33,6 +34,7 @@ public class ClickerRobot implements Runnable {
 			for( int i=0; i<numClicks; i++ ) {
 				robot.mousePress(InputEvent.BUTTON1_MASK);
 				robot.mouseRelease(InputEvent.BUTTON1_MASK);
+				testClicks++;
 				Thread.sleep(clickInterval);
 			}
 			
