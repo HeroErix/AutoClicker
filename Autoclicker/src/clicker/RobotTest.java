@@ -8,12 +8,19 @@ import org.junit.Test;
 
 public class RobotTest {
 
+	ClickerFrame frame = new ClickerFrame();
+	ClickerRobot test = new ClickerRobot(frame, 10, 100);
+	
 	@Test
-	public void test() {
-		ClickerFrame frame = new ClickerFrame();
-		ClickerRobot test = new ClickerRobot(frame, 10, 100);
+	public void testClicks() {
 		test.run();
 		assertEquals(test.testClicks,test.numClicks);
 	}
 
+	@Test
+	public void testSetup() {
+		frame.actionPerformed(new ActionEvent(test, 0, "Start"));
+		assertNotNull(frame.clicker);
+	}
 }
+

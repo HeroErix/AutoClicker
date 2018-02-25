@@ -27,6 +27,7 @@ public class ClickerFrame extends JFrame implements ActionListener {
 	private JTextField txtN;
 	private JTextField txtInterval;
 	private JButton btnStart;
+	ClickerRobot clicker;
 	
 	public ClickerFrame() {
 		setTitle("Auto Clicker");
@@ -81,7 +82,7 @@ public class ClickerFrame extends JFrame implements ActionListener {
 	@Override
 	public void actionPerformed(ActionEvent arg0) {
 		if( arg0.getActionCommand().equals( "Start" ) ) {
-			ClickerRobot clicker = new ClickerRobot( ClickerFrame.this,
+			clicker = new ClickerRobot( ClickerFrame.this,
 						Integer.parseInt( "0" + txtN.getText().trim()),
 						Integer.parseInt( "0" + txtInterval.getText().trim() ));
 				
